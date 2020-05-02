@@ -1,0 +1,46 @@
+.center {
+    text-align: center;
+}
+
+.right {
+    float: right;
+}
+
+.tableMain {
+    width: 95%;
+    height: 35%;
+
+    margin: auto;
+}
+
+.tableInfo {
+    margin: auto;
+}
+
+.tableForm {
+    margin: auto;
+}
+
+body {
+    background: #C0C0C0;
+    color: black;
+}
+
+input {
+    background: #C0C0C0;
+    color: black;
+}
+
+th {
+    border: 1px solid black;
+}
+
+td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+.noBorder {
+    text-align: center;
+    border: 0;
+}
