@@ -37,14 +37,19 @@ public class LoginServlet extends HttpServlet {
 
             switch (employee.getEmployeePosition()) {
                 case ADMINISTRATOR:
+                case DIRECTOR:
+                case MANAGER:
                     resp.sendRedirect(contextPath + "/administration");
+                    break;
+                case ACCOUNTANT:
+                    resp.sendRedirect(contextPath + "/suppliers");
                     break;
                 case SELLER:
                     resp.sendRedirect(contextPath + "/products");
                     break;
-                case UNKNOWN:
-                    resp.sendRedirect(contextPath + "/login");
             }
+        } else {
+            resp.sendRedirect(contextPath + "/login");
         }
     }
 }

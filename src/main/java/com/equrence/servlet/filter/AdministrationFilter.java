@@ -22,7 +22,7 @@ public class AdministrationFilter implements Filter {
         if (employee.getEmployeePosition() == EmployeePosition.ADMINISTRATOR) {
             chain.doFilter(req, resp);
         } else {
-            resp.getWriter().println("Access Error");
+            req.getRequestDispatcher(req.getContextPath() + "/view/error/error404.jsp").forward(req, resp);
         }
     }
 }
