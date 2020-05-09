@@ -9,6 +9,7 @@
     </head>
     <body>
         <div class="center">
+
             <h1>Вход</h1>
 
             <form action="${pageContext.request.contextPath}/login" method="post">

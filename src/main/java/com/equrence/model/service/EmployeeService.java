@@ -1,39 +1,22 @@
 package com.equrence.model.service;
 
-import com.equrence.model.dao.EmployeeDao;
 import com.equrence.model.entity.Employee;
 import com.equrence.model.entity.enumeration.EmployeePosition;
 
 import java.util.List;
 
-public class EmployeeService {
-    private final EmployeeDao dao = new EmployeeDao();
+public interface EmployeeService {
+    void addEmployee(Employee employee);
 
-    public void addEmployee(Employee employee) {
-        dao.addEmployee(employee);
-    }
+    List<Employee> getAllEmployees();
 
-    public List<Employee> getAllEmployees() {
-        return dao.getAllEmployees();
-    }
+    Employee getEmployeeById(int id);
 
-    public Employee getEmployeeById(int id) {
-        return dao.getEmployeeById(id);
-    }
+    void updateEmployeeInfo(int id, Employee employee);
 
-    public void updateEmployeeInfo(int id, Employee employee) {
-        dao.updateEmployeeInfo(id, employee);
-    }
+    void deleteEmployee(int id);
 
-    public void deleteEmployee(int id) {
-        dao.deleteEmployee(id);
-    }
+    EmployeePosition getRoleById(int id);
 
-    public EmployeePosition getRoleById(int id) {
-        return dao.getEmployeePositionById(id);
-    }
-
-    public boolean employeeIsExist(int id, String password) {
-        return dao.employeeIsExist(id, password);
-    }
+    boolean employeeIsExist(int id, String password);
 }

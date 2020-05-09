@@ -1,30 +1,17 @@
 package com.equrence.model.service;
 
-import com.equrence.model.dao.DeliveryDao;
 import com.equrence.model.entity.Delivery;
 
 import java.util.List;
 
-public class DeliveryService {
-    DeliveryDao dao = new DeliveryDao();
+public interface DeliveryService {
+    void addDelivery(Delivery delivery);
 
-    public void addDelivery(Delivery delivery) {
-        dao.addDelivery(delivery);
-    }
+    List<Delivery> getAllDeliveries();
 
-    public List<Delivery> getAllDeliveries() {
-        return dao.getAllDeliveries();
-    }
+    Delivery getDeliveryById(long id);
 
-    public Delivery getDeliveryById(long id) {
-        return dao.getDeliveryById(id);
-    }
+    void editDeliveryInfo(long id, Delivery delivery);
 
-    public void editDeliveryInfo(long id, Delivery delivery) {
-        dao.editDeliveryInfo(id, delivery);
-    }
-
-    public void deleteDelivery(long id) {
-        dao.deleteDelivery(id);
-    }
+    void deleteDelivery(long id);
 }

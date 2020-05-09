@@ -1,34 +1,19 @@
 package com.equrence.model.service;
 
-import com.equrence.model.dao.ProductDao;
 import com.equrence.model.entity.Product;
 
 import java.util.List;
 
-public class ProductService {
-    private final ProductDao dao = new ProductDao();
+public interface ProductService {
+    void addProduct(Product product);
 
-    public void addProduct(Product product) {
-        dao.addProduct(product);
-    }
+    List<Product> getAllProducts();
 
-    public List<Product> getAllProducts() {
-        return dao.getAllProducts();
-    }
+    Product getProductById(long id);
 
-    public Product getProductById(long id) {
-        return dao.getProductById(id);
-    }
+    void editProduct(long id, Product product);
 
-    public void editProduct(long id, Product product) {
-        dao.editProduct(id, product);
-    }
+    void updateProductQuantityById(long id, int number);
 
-    public void updateProductQuantityById(long id, int number) {
-        dao.updateProductQuantity(id, number);
-    }
-
-    public void deleteProduct(long id) {
-        dao.deleteProduct(id);
-    }
+    void deleteProduct(long id);
 }

@@ -1,30 +1,17 @@
 package com.equrence.model.service;
 
-import com.equrence.model.dao.SupplierDao;
 import com.equrence.model.entity.Supplier;
 
 import java.util.List;
 
-public class SupplierService {
-    private final SupplierDao dao = new SupplierDao();
+public interface SupplierService {
+    void addSupplier(Supplier supplier);
 
-    public void addSupplier(Supplier supplier) {
-        dao.addSupplier(supplier);
-    }
+    List<Supplier> getAllSuppliers();
 
-    public List<Supplier> getAllSuppliers() {
-        return dao.getAllSuppliers();
-    }
+    Supplier getSupplierById(int id);
 
-    public Supplier getSupplierById(int id) {
-        return dao.getSupplierById(id);
-    }
+    void updateSupplierInfo(long id, Supplier supplier);
 
-    public void updateSupplierInfo(long id, Supplier supplier) {
-        dao.updateSupplierInfo(id, supplier);
-    }
-
-    public void deleteSupplier(int id) {
-        dao.deleteSupplier(id);
-    }
+    void deleteSupplier(int id);
 }

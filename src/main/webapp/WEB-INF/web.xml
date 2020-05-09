@@ -14,7 +14,7 @@
     <!--Filters-->
     <filter>
         <filter-name>EncodingFilter</filter-name>
-        <filter-class>com.equrence.servlet.filter.EncodingFilter</filter-class>
+        <filter-class>com.equrence.servlet_filter.EncodingFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>EncodingFilter</filter-name>
@@ -22,19 +22,47 @@
     </filter-mapping>
     <filter>
         <filter-name>AuthorizationFilter</filter-name>
-        <filter-class>com.equrence.servlet.filter.AuthorizationFilter</filter-class>
+        <filter-class>com.equrence.servlet_filter.AuthorizationFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>AuthorizationFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
     <filter>
-        <filter-name>AdministrationFilter</filter-name>
-        <filter-class>com.equrence.servlet.filter.AdministrationFilter</filter-class>
+        <filter-name>AccountingFilter</filter-name>
+        <filter-class>com.equrence.servlet_filter.AccountingFilter</filter-class>
     </filter>
     <filter-mapping>
-        <filter-name>AdministrationFilter</filter-name>
-        <url-pattern>/administration/*</url-pattern>
-        <url-pattern>/view/administration/*</url-pattern>
+        <filter-name>AccountingFilter</filter-name>
+        <url-pattern>/accounting/*</url-pattern>
+        <url-pattern>/view/accounting/*</url-pattern>
     </filter-mapping>
+    <filter>
+        <filter-name>ManagementFilter</filter-name>
+        <filter-class>com.equrence.servlet_filter.ManagementFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ManagementFilter</filter-name>
+        <url-pattern>/management/*</url-pattern>
+        <url-pattern>/view/management/*</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>SellingFilter</filter-name>
+        <filter-class>com.equrence.servlet_filter.SellingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>SellingFilter</filter-name>
+        <url-pattern>/selling/*</url-pattern>
+        <url-pattern>/view/selling/*</url-pattern>
+    </filter-mapping>
+
+    <!--Error pages-->
+    <error-page>
+        <error-code>403</error-code>
+        <location>/view/error/error403.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/view/error/error404.jsp</location>
+    </error-page>
 </web-app>
