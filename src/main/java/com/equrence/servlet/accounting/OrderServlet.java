@@ -27,6 +27,6 @@ public class OrderServlet extends HttpServlet {
 
         req.setAttribute("orders", orders);
 
-        req.getRequestDispatcher(req.getContextPath() + "/view/accounting/orders.jsp").forward(req, resp);
+        req.getRequestDispatcher("/view/accounting/orders.jsp").forward(req, resp);
     }
 }

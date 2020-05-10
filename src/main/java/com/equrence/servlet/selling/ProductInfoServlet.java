@@ -22,22 +22,21 @@ public class ProductInfoServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String contextPath = req.getContextPath();
         long id = -1;
 
         if (req.getParameter("id") != null && !req.getParameter("id").isEmpty()) {
             id = Long.parseLong(req.getParameter("id"));
         } else {
-            req.getRequestDispatcher(contextPath + "/view/error/error404.jsp").forward(req, resp);
+            req.getRequestDispatcher("/view/error/error404.jsp").forward(req, resp);
         }
 
         Product product = service.getProductById(id);
 
         if (product != null) {
             req.setAttribute("product", product);
-            req.getRequestDispatcher(contextPath + "/view/selling/product_info.jsp").forward(req, resp);
+            req.getRequestDispatcher("/view/selling/product_info.jsp").forward(req, resp);
         } else {
-            req.getRequestDispatcher(contextPath + "/view/error/product_not_found.jsp").forward(req, resp);
+            req.getRequestDispatcher("/view/error/product_not_found.jsp").forward(req, resp);
         }
     }
 }

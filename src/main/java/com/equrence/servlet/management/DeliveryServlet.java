@@ -27,6 +27,6 @@ public class DeliveryServlet extends HttpServlet {
 
         req.setAttribute("deliveries", deliveries);
 
-        req.getRequestDispatcher(req.getContextPath() + "/view/management/deliveries.jsp").forward(req, resp);
+        req.getRequestDispatcher("/view/management/deliveries.jsp").forward(req, resp);
     }
 }

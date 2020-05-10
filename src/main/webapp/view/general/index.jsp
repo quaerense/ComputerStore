@@ -13,7 +13,7 @@
             <h1>Вход</h1>
 
             <form action="${pageContext.request.contextPath}/login" method="post">
-                <table class="tableForm">
+                <table class="tableInfo">
                     <tr class="noBorder"><td class="noBorder"><label for="id">ID:</label><br/></td></tr>
                     <tr class="noBorder"><td class="noBorder"><input name="id" id="id" type="text" required></td></tr>
                     <tr class="noBorder"><td class="noBorder"><label for="password">Пароль:</label></td></tr>

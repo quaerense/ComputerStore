@@ -23,7 +23,7 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher(req.getContextPath() + "/view/general/index.jsp").forward(req, resp);
+        req.getRequestDispatcher("/view/general/index.jsp").forward(req, resp);
     }
 
     @Override
@@ -45,7 +45,7 @@ public class LoginServlet extends HttpServlet {
                     resp.sendRedirect(contextPath + "/accounting");
                     break;
                 case MANAGER:
-                    resp.sendRedirect(contextPath + "/management/suppliers");
+                    resp.sendRedirect(contextPath + "/management");
                     break;
                 case SELLER:
                     resp.sendRedirect(contextPath + "/selling");

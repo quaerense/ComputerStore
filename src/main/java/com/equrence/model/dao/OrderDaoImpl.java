@@ -11,7 +11,7 @@ public class OrderDaoImpl implements OrderDao {
     private final JdbcManagerImpl jdbcManager = new JdbcManagerImpl();
 
     public void createOrder(Order order) {
-        String sql = "INSERT INTO orders (product_id, employee_id, product_qauntity, total_amount, order_date) " +
+        String sql = "INSERT INTO orders (product_id, employee_id, product_quantity, total_amount, order_date) " +
                 "VALUES (?, ?, ?, ?, ?)";
 
         try (Connection connection = jdbcManager.getConnection();
@@ -30,7 +30,7 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     public List<Order> getAllOrders() {
-        String sql = "SELECT order_id, product_id, employee_id, product_qauntity, total_amount, order_date FROM orders";
+        String sql = "SELECT order_id, product_id, employee_id, product_quantity, total_amount, order_date FROM orders";
         List<Order> orders = new ArrayList<>();
         Order order;
 
@@ -59,7 +59,7 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     public List<Order> getAllOrdersByEmployeeId(int id) {
-        String sql = "SELECT order_id, product_id, employee_id, product_qauntity, total_amount, order_date" +
+        String sql = "SELECT order_id, product_id, employee_id, product_quantity, total_amount, order_date" +
                 " FROM orders WHERE employee_id = ?";
         List<Order> orders = new ArrayList<>();
         Order order;
@@ -91,7 +91,7 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     public Order getOrderById(long id) {
-        String sql = "SELECT order_id, product_id, employee_id, product_qauntity, total_amount, order_date FROM orders " +
+        String sql = "SELECT order_id, product_id, employee_id, product_quantity, total_amount, order_date FROM orders " +
                 "WHERE order_id = ?";
         Order order = null;
 
@@ -121,7 +121,7 @@ public class OrderDaoImpl implements OrderDao {
     }
 
     public Order getOrderByIdAndEmployeeId(long orderId, int employeeId) {
-        String sql = "SELECT order_id, product_id, employee_id, product_qauntity, total_amount, order_date FROM orders " +
+        String sql = "SELECT order_id, product_id, employee_id, product_quantity, total_amount, order_date FROM orders " +
                 "WHERE order_id = ? AND employee_id = ?";
         Order order = null;
 

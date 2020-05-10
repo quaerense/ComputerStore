@@ -33,6 +33,6 @@ public class MyOrdersServlet extends HttpServlet {
         List<Order> orders = service.getAllOrdersByEmployeeId(id);
 
         req.setAttribute("orders", orders);
-        req.getRequestDispatcher(req.getContextPath() + "/view/selling/my_orders.jsp").forward(req, resp);
+        req.getRequestDispatcher("/view/selling/my_orders.jsp").forward(req, resp);
     }
 }

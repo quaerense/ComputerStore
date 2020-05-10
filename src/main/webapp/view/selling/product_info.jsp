@@ -14,7 +14,7 @@
 
             <h1>Информация о товаре</h1>
 
-                <table class="tableForm">
+                <table class="tableInfo">
                     <tr>
                         <th>Артикул</th>
                         <td>${requestScope.product.productId}</td>

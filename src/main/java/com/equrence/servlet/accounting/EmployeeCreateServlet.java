@@ -25,7 +25,7 @@ public class EmployeeCreateServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        req.getRequestDispatcher(req.getContextPath() + "/view/accounting/employee_create.jsp").forward(req, resp);
+        req.getRequestDispatcher("/view/accounting/employee_create.jsp").forward(req, resp);
     }
 
     @Override

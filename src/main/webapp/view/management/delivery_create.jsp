@@ -16,7 +16,7 @@
             <form action="${pageContext.request.contextPath}/management/delivery_create" method="post">
                 <table class="tableInfo">
                     <tr>
-                        <th><label for="supplier_id">ID <a href="${pageContext.request.contextPath}/management/suppliers">поставщика</a></label></th>
+                        <th><label for="supplier_id">ID <a href="${pageContext.request.contextPath}/management">поставщика</a></label></th>
                         <td><input type="number" id="supplier_id" name="supplier_id" required></td>
                     </tr>
                     <tr>

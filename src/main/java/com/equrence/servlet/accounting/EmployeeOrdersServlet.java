@@ -36,6 +36,6 @@ public class EmployeeOrdersServlet extends HttpServlet {
         req.setAttribute("orders", orders);
         req.setAttribute("employee", employee);
 
-        req.getRequestDispatcher(req.getContextPath() + "/view/accounting/employee_orders.jsp").forward(req, resp);
+        req.getRequestDispatcher("/view/accounting/employee_orders.jsp").forward(req, resp);
     }
 }

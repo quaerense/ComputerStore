@@ -29,7 +29,7 @@
                         <td>${order.productQuantity}</td>
                         <td>${order.totalAmount}</td>
                         <td>${order.orderDate}</td>
-                        <td><a href="${pageContext.request.contextPath}/accounting/employee_order_info?id=${order.orderId}">Подробнее</a></td>
+                        <td><a href="${pageContext.request.contextPath}/accounting/order_info?id=${order.orderId}">Подробнее</a></td>
                     </tr>
                 </c:forEach>
             </table>

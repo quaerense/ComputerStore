@@ -27,13 +27,12 @@ public class DeliveryInfoServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String contextPath = req.getContextPath();
         long deliveryId = -1;
 
         if (req.getParameter("id") != null && !req.getParameter("id").isEmpty()) {
             deliveryId = Long.parseLong(req.getParameter("id"));
         } else {
-            req.getRequestDispatcher(contextPath + "/view/error/error404.jsp").forward(req, resp);
+            req.getRequestDispatcher("/view/error/error404.jsp").forward(req, resp);
         }
 
         Delivery delivery = deliveryService.getDeliveryById(deliveryId);
@@ -48,9 +47,9 @@ public class DeliveryInfoServlet extends HttpServlet {
             req.setAttribute("delivery", delivery);
             req.setAttribute("supplierName", supplierName);
 
-            req.getRequestDispatcher(contextPath + "/view/management/delivery_info.jsp").forward(req, resp);
+            req.getRequestDispatcher("/view/management/delivery_info.jsp").forward(req, resp);
         } else {
-            req.getRequestDispatcher(contextPath + "/view/error/delivery_not_found.jsp").forward(req, resp);
+            req.getRequestDispatcher("/view/error/delivery_not_found.jsp").forward(req, resp);
         }
     }
 }

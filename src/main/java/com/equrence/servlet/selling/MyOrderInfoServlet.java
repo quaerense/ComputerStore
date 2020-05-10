@@ -35,6 +35,6 @@ public class MyOrderInfoServlet extends HttpServlet {
 
         req.setAttribute("orderDetails", orderDetails);
 
-        req.getRequestDispatcher(req.getContextPath() + "/view/selling/my_order_info.jsp").forward(req, resp);
+        req.getRequestDispatcher("/view/selling/my_order_info.jsp").forward(req, resp);
     }
 }

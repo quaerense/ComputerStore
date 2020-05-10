@@ -27,6 +27,6 @@ public class AccountingServlet extends HttpServlet {
 
         req.setAttribute("employees", employees);
 
-        req.getRequestDispatcher(req.getContextPath() + "/view/accounting/employees.jsp").forward(req, resp);
+        req.getRequestDispatcher("/view/accounting/employees.jsp").forward(req, resp);
     }
 }

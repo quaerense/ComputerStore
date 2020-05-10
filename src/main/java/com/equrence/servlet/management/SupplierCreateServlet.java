@@ -22,7 +22,7 @@ public class SupplierCreateServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher(req.getContextPath() + "/view/management/supplier_create.jsp").forward(req, resp);
+        req.getRequestDispatcher("/view/management/supplier_create.jsp").forward(req, resp);
     }
 
     @Override
@@ -36,6 +36,6 @@ public class SupplierCreateServlet extends HttpServlet {
 
         service.addSupplier(supplier);
 
-        resp.sendRedirect(req.getContextPath() + "/management/suppliers");
+        resp.sendRedirect(req.getContextPath() + "/management");
     }
 }

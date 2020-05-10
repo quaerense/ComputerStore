@@ -27,7 +27,7 @@ public class SellingFilter implements Filter {
                 chain.doFilter(req, resp);
                 break;
             default:
-                req.getRequestDispatcher(req.getContextPath() + "/view/error/error403.jsp").forward(req, resp);
+                req.getRequestDispatcher("/view/error/error403.jsp").forward(req, resp);
                 break;
         }
     }

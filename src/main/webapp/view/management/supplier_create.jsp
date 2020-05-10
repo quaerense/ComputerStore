@@ -36,7 +36,7 @@
                     </tr>
                 </table>
             </form>
-            <a href="${pageContext.request.contextPath}/management/suppliers">Отмена</a>
+            <a href="${pageContext.request.contextPath}/management">Отмена</a>
         </div>
     </body>
 </html>

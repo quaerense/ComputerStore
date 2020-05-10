@@ -24,7 +24,7 @@ public class ProductCreateServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        req.getRequestDispatcher(req.getContextPath() + "/view/management/product_create.jsp").forward(req, resp);
+        req.getRequestDispatcher("/view/management/product_create.jsp").forward(req, resp);
     }
 
     @Override

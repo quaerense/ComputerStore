@@ -38,7 +38,7 @@ public class OrderCreateServlet extends HttpServlet {
 
         req.setAttribute("product", product);
 
-        req.getRequestDispatcher(req.getContextPath() + "/view/selling/order_create.jsp").forward(req, resp);
+        req.getRequestDispatcher("/view/selling/order_create.jsp").forward(req, resp);
     }
 
     @Override

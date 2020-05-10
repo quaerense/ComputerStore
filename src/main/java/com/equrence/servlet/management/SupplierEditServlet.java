@@ -28,7 +28,7 @@ public class SupplierEditServlet extends HttpServlet {
 
         req.setAttribute("supplier", supplier);
 
-        req.getRequestDispatcher(req.getContextPath() + "/view/management/supplier_edit.jsp").forward(req, resp);
+        req.getRequestDispatcher("/view/management/supplier_edit.jsp").forward(req, resp);
     }
 
     @Override
@@ -44,6 +44,6 @@ public class SupplierEditServlet extends HttpServlet {
 
         service.updateSupplierInfo(id, supplier);
 
-        resp.sendRedirect(req.getContextPath() + "/management/suppliers");
+        resp.sendRedirect(req.getContextPath() + "/management");
     }
 }

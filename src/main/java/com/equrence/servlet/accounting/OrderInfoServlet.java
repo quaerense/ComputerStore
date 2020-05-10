@@ -22,22 +22,21 @@ public class OrderInfoServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String contextPath = req.getContextPath();
         long id = -1;
 
         if (req.getParameter("id") != null && !req.getParameter("id").isEmpty()) {
             id = Integer.parseInt(req.getParameter("id"));
         } else {
-            req.getRequestDispatcher(contextPath + "/view/error/error404.jsp").forward(req, resp);
+            req.getRequestDispatcher("/view/error/error404.jsp").forward(req, resp);
         }
 
         Map<String, String> orderDetails = service.showOrderDetails(id);
 
         if (orderDetails != null) {
             req.setAttribute("orderDetails", orderDetails);
-            req.getRequestDispatcher(contextPath + "/view/accounting/order_info.jsp").forward(req, resp);
+            req.getRequestDispatcher("/view/accounting/order_info.jsp").forward(req, resp);
         } else {
-            req.getRequestDispatcher(contextPath + "/view/error/order_not_found.jsp").forward(req, resp);
+            req.getRequestDispatcher("/view/error/order_not_found.jsp").forward(req, resp);
         }
     }
 }

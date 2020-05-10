@@ -31,7 +31,7 @@ public class EmployeeEditServlet extends HttpServlet {
 
         req.setAttribute("employee", employee);
 
-        req.getRequestDispatcher(req.getContextPath() + "/view/accounting/employee_edit.jsp").forward(req, resp);
+        req.getRequestDispatcher("/view/accounting/employee_edit.jsp").forward(req, resp);
     }
 
     @Override

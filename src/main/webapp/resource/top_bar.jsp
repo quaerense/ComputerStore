@@ -14,7 +14,7 @@
         <a href="${pageContext.request.contextPath}/selling/my_orders">Мои заказы</a>
     </c:if>
     <c:if test="${employee.employeePosition == 'MANAGER'}">
-        <a href="${pageContext.request.contextPath}/management/suppliers">Поставщики</a>
+        <a href="${pageContext.request.contextPath}/management">Поставщики</a>
         <a href="${pageContext.request.contextPath}/management/deliveries">Поставки</a>
         <a href="${pageContext.request.contextPath}/selling">Товары</a>
         <a href="${pageContext.request.contextPath}/selling/my_orders">Мои заказы</a>
@@ -25,7 +25,7 @@
     </c:if>
     <c:if test="${employee.employeePosition == 'DIRECTOR' || employee.employeePosition == 'ADMINISTRATOR'}">
         <a href="${pageContext.request.contextPath}/accounting">Работники</a>
-        <a href="${pageContext.request.contextPath}/management/suppliers">Поставщики</a>
+        <a href="${pageContext.request.contextPath}/management">Поставщики</a>
         <a href="${pageContext.request.contextPath}/management/deliveries">Поставки</a>
         <a href="${pageContext.request.contextPath}/selling">Товары</a>
         <a href="${pageContext.request.contextPath}/selling/my_orders">Мои заказы</a>

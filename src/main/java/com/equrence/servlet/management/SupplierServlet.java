@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/management/suppliers")
+@WebServlet("/management")
 public class SupplierServlet extends HttpServlet {
     private SupplierService service;
 
@@ -27,6 +27,6 @@ public class SupplierServlet extends HttpServlet {
 
         req.setAttribute("suppliers", suppliers);
 
-        req.getRequestDispatcher(req.getContextPath() + "/view/management/suppliers.jsp").forward(req, resp);
+        req.getRequestDispatcher("/view/management/suppliers.jsp").forward(req, resp);
     }
 }
