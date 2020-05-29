@@ -11,19 +11,38 @@ public class OrderDaoImpl implements OrderDao {
     private final JdbcManagerImpl jdbcManager = new JdbcManagerImpl();
 
     public void createOrder(Order order) {
-        String sql = "INSERT INTO orders (product_id, employee_id, product_quantity, total_amount, order_date) " +
+        String sql1 = "INSERT INTO orders (product_id, employee_id, product_quantity, total_amount, order_date) " +
                 "VALUES (?, ?, ?, ?, ?)";
 
-        try (Connection connection = jdbcManager.getConnection();
-             PreparedStatement statement = connection.prepareStatement(sql)) {
+        String sql2 = "UPDATE products SET product_quantity = (product_quantity - ?) WHERE product_id = ?";
 
-            statement.setLong(1, order.getProductId());
-            statement.setInt(2, order.getEmployeeId());
-            statement.setInt(3, order.getProductQuantity());
-            statement.setBigDecimal(4, order.getTotalAmount());
-            statement.setTimestamp(5, new Timestamp(System.currentTimeMillis()));
+        int productQuantity = order.getProductQuantity();
+        long productId = order.getProductId();
 
-            statement.execute();
+        try (Connection connection = jdbcManager.getConnection()) {
+
+            connection.setAutoCommit(false);
+
+            try (PreparedStatement statement1 = connection.prepareStatement(sql1);
+                PreparedStatement statement2 = connection.prepareStatement(sql2)) {
+
+                statement1.setLong(1, productId);
+                statement1.setInt(2, order.getEmployeeId());
+                statement1.setInt(3, productQuantity);
+                statement1.setBigDecimal(4, order.getTotalAmount());
+                statement1.setTimestamp(5, new Timestamp(System.currentTimeMillis()));
+
+                statement2.setInt(1, productQuantity);
+                statement2.setLong(2, productId);
+
+                statement1.execute();
+                statement2.execute();
+            } catch (SQLException e) {
+                e.printStackTrace();
+                connection.rollback();
+            }
+
+            connection.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         }

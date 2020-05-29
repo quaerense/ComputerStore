@@ -17,6 +17,11 @@
     margin: auto;
 }
 
+.noBorder {
+    text-align: center;
+    border: 0;
+}
+
 body {
     background: #C0C0C0;
     color: black;
@@ -34,9 +39,4 @@ th {
 td {
     border: 1px solid black;
     text-align: center;
-}
-
-.noBorder {
-    text-align: center;
-    border: 0;
 }

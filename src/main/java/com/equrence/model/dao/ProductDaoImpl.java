@@ -118,21 +118,6 @@ public class ProductDaoImpl implements ProductDao {
         }
     }
 
-    public void updateProductQuantity(long id, int number) {
-        String sql = "UPDATE products SET product_quantity = (product_quantity + ?) WHERE product_id = ?";
-
-        try (Connection connection = jdbcManager.getConnection();
-             PreparedStatement statement = connection.prepareStatement(sql)) {
-
-            statement.setInt(1, number);
-            statement.setLong(2, id);
-
-            statement.execute();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
     public void deleteProduct(long id) {
         String sql = "DELETE FROM products WHERE product_id = ?";
 

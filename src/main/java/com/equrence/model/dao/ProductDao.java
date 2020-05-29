@@ -13,7 +13,5 @@ public interface ProductDao {
 
     void editProduct(long id, Product product);
 
-    void updateProductQuantity(long id, int number);
-
     void deleteProduct(long id);
 }

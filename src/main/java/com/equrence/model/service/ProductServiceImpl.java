@@ -25,10 +25,6 @@ public class ProductServiceImpl implements ProductService {
         dao.editProduct(id, product);
     }
 
-    public void updateProductQuantityById(long id, int number) {
-        dao.updateProductQuantity(id, number);
-    }
-
     public void deleteProduct(long id) {
         dao.deleteProduct(id);
     }

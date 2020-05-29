@@ -18,23 +18,15 @@ public class OrderServiceImpl implements OrderService {
     private final EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
     private final OrderDao dao = new OrderDaoImpl();
 
-    public synchronized void createOrder(Order order) {
-        long productId = order.getProductId();
-        int quantityForSale = order.getProductQuantity();
+    public void createOrder(Order order) {
+        BigDecimal costOfOneProduct = productService.getProductById(order.getProductId()).getSellingPrice();
+        int quantity = order.getProductQuantity();
 
-        Product product = productService.getProductById(productId);
+        BigDecimal totalCost = costOfOneProduct.multiply(new BigDecimal(quantity));
 
-        int totalQuantity = product.getProductQuantity();
-        BigDecimal sellingPrice = product.getSellingPrice();
+        order.setTotalAmount(totalCost);
 
-        if (quantityForSale > 0 && totalQuantity >= quantityForSale) {
-            productService.updateProductQuantityById(productId, -quantityForSale);
-
-            BigDecimal totalAmount = sellingPrice.multiply(new BigDecimal(quantityForSale));
-
-            order.setTotalAmount(totalAmount);
-            dao.createOrder(order);
-        }
+        dao.createOrder(order);
     }
 
     public List<Order> getAllOrders() {
