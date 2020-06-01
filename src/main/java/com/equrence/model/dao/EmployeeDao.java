@@ -14,6 +14,8 @@ public interface EmployeeDao {
 
     void updateEmployeeInfo(int id, Employee employee);
 
+    void updateEmployeePassword(int id, String password);
+
     void deleteEmployee(int id);
 
     EmployeePosition getEmployeePositionById(int id);

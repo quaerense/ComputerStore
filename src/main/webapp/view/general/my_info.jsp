@@ -43,6 +43,8 @@
                     <td>${sessionScope.employee.employeeSalary}</td>
                 </tr>
             </table>
+            <a href="${pageContext.request.contextPath}/change_password">Изменить пароль</a>
+            <br />
             <a href="#" onclick="history.back();">Назад</a>
         </div>
     </body>

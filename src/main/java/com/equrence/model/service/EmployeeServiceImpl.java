@@ -26,6 +26,19 @@ public class EmployeeServiceImpl implements EmployeeService {
         dao.updateEmployeeInfo(id, employee);
     }
 
+    public boolean updateEmployeePassword(int id, String oldPassword, String newPassword1, String newPassword2) {
+        Employee employee = dao.getEmployeeById(id);
+
+        String currentPassword = employee.getEmployeePassword();
+
+        if (oldPassword.equals(currentPassword) && newPassword1.equals(newPassword2)) {
+            dao.updateEmployeePassword(id, newPassword1);
+            return true;
+        }
+
+        return false;
+    }
+
     public void deleteEmployee(int id) {
         dao.deleteEmployee(id);
     }

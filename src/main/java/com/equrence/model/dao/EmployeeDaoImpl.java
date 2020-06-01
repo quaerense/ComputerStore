@@ -64,7 +64,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
     }
 
     public Employee getEmployeeById(int id) {
-        String sql = "SELECT employee_name, employee_birth, employee_position, employee_address, phone_number, employee_salary " +
+        String sql = "SELECT employee_password, employee_name, employee_birth, employee_position, employee_address, phone_number, employee_salary " +
                 "FROM employees WHERE employee_id = ?";
         Employee employee = null;
 
@@ -78,12 +78,13 @@ public class EmployeeDaoImpl implements EmployeeDao {
                     employee = new Employee();
 
                     employee.setEmployeeId(id);
-                    employee.setEmployeeName(resultSet.getString(1));
-                    employee.setEmployeeBirth(resultSet.getDate(2));
-                    employee.setEmployeePosition(EmployeePosition.valueOf(resultSet.getString(3)));
-                    employee.setEmployeeAddress(resultSet.getString(4));
-                    employee.setPhoneNumber(resultSet.getString(5));
-                    employee.setEmployeeSalary(resultSet.getBigDecimal(6));
+                    employee.setEmployeePassword(resultSet.getString(1));
+                    employee.setEmployeeName(resultSet.getString(2));
+                    employee.setEmployeeBirth(resultSet.getDate(3));
+                    employee.setEmployeePosition(EmployeePosition.valueOf(resultSet.getString(4)));
+                    employee.setEmployeeAddress(resultSet.getString(5));
+                    employee.setPhoneNumber(resultSet.getString(6));
+                    employee.setEmployeeSalary(resultSet.getBigDecimal(7));
                 }
             }
         } catch (SQLException e) {
@@ -108,6 +109,21 @@ public class EmployeeDaoImpl implements EmployeeDao {
             statement.setString(5, employee.getPhoneNumber());
             statement.setBigDecimal(6, employee.getEmployeeSalary());
             statement.setInt(7, id);
+
+            statement.execute();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateEmployeePassword(int id, String password) {
+        String sql = "UPDATE employees SET employee_password = ? WHERE employee_id = ?";
+
+        try (Connection connection = jdbcManager.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, password);
+            statement.setInt(2, id);
 
             statement.execute();
         } catch (SQLException e) {

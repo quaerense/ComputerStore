@@ -14,6 +14,8 @@ public interface EmployeeService {
 
     void updateEmployeeInfo(int id, Employee employee);
 
+    boolean updateEmployeePassword(int id, String oldPassword, String newPassword1, String newPassword2);
+
     void deleteEmployee(int id);
 
     EmployeePosition getRoleById(int id);

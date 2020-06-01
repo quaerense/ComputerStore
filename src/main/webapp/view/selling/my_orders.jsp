@@ -33,7 +33,6 @@
                     </tr>
                 </c:forEach>
             </table>
-            <a href="#" onclick="history.back();">Назад</a>
         </div>
     </body>
 </html>
