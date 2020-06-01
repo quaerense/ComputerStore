@@ -1,6 +1,6 @@
 package com.equrence.model.dao;
 
-import com.equrence.db_connection.JdbcManagerImpl;
+import com.equrence.db_connection.JdbcManager;
 import com.equrence.model.entity.Product;
 import com.equrence.model.entity.enumeration.ProductType;
 
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDaoImpl implements ProductDao {
-    private final JdbcManagerImpl jdbcManager = new JdbcManagerImpl();
+    private final JdbcManager jdbcManager = new JdbcManager();
 
     public void addProduct(Product product) {
         String sql = "INSERT INTO products (delivery_id, product_type, product_name, product_description, product_quantity, purchase_price, selling_price)" +

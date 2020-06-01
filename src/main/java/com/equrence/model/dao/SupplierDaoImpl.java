@@ -1,6 +1,6 @@
 package com.equrence.model.dao;
 
-import com.equrence.db_connection.JdbcManagerImpl;
+import com.equrence.db_connection.JdbcManager;
 import com.equrence.model.entity.Supplier;
 
 import java.sql.Connection;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SupplierDaoImpl implements SupplierDao {
-    JdbcManagerImpl jdbcManager = new JdbcManagerImpl();
+    JdbcManager jdbcManager = new JdbcManager();
 
     public void addSupplier(Supplier supplier) {
         String sql = "INSERT INTO suppliers (supplier_name, supplier_representative, supplier_address, phone_number) " +

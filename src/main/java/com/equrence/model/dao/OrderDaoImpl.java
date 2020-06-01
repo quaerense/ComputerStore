@@ -1,6 +1,6 @@
 package com.equrence.model.dao;
 
-import com.equrence.db_connection.JdbcManagerImpl;
+import com.equrence.db_connection.JdbcManager;
 import com.equrence.model.entity.Order;
 
 import java.sql.*;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OrderDaoImpl implements OrderDao {
-    private final JdbcManagerImpl jdbcManager = new JdbcManagerImpl();
+    private final JdbcManager jdbcManager = new JdbcManager();
 
     public void createOrder(Order order) {
         String sql1 = "INSERT INTO orders (product_id, employee_id, product_quantity, total_amount, order_date) " +

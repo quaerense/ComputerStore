@@ -1,6 +1,6 @@
 package com.equrence.model.dao;
 
-import com.equrence.db_connection.JdbcManagerImpl;
+import com.equrence.db_connection.JdbcManager;
 import com.equrence.model.entity.Delivery;
 
 import java.sql.Connection;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DeliveryDaoImpl implements DeliveryDao {
-    private final JdbcManagerImpl jdbcManager = new JdbcManagerImpl();
+    private final JdbcManager jdbcManager = new JdbcManager();
 
     public void addDelivery(Delivery delivery) {
         String sql = "INSERT INTO deliveries (supplier_id, delivery_date) VALUES (?, ?)";

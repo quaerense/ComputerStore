@@ -1,6 +1,6 @@
 package com.equrence.model.dao;
 
-import com.equrence.db_connection.JdbcManagerImpl;
+import com.equrence.db_connection.JdbcManager;
 import com.equrence.model.entity.Employee;
 import com.equrence.model.entity.enumeration.EmployeePosition;
 
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeDaoImpl implements EmployeeDao {
-    private final JdbcManagerImpl jdbcManager = new JdbcManagerImpl();
+    private final JdbcManager jdbcManager = new JdbcManager();
 
     public void addEmployee(Employee employee) {
         String sql = "INSERT INTO employees " +

@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet("/selling")
-public class ProductServlet extends HttpServlet {
+public class ProductsServlet extends HttpServlet {
     private ProductService productService;
 
     @Override
